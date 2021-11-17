@@ -24,8 +24,7 @@ class InitialViewController: UIViewController, Coordinating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        dealerSelectionView.backgroundColor = .orange
+        dealerSelectionView.backgroundColor = UIColor(named: "bgColorInitialScreen")
         dealerSelectionView.button.center = view.center
         dealerSelectionView.button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
