@@ -17,6 +17,7 @@
 		BFEB63222745AABE00086013 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB63212745AABE00086013 /* MapView.swift */; };
 		BFEB63242745AAF000086013 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB63232745AAF000086013 /* MapViewController.swift */; };
 		BFEB63272745B54700086013 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB63262745B54700086013 /* MainCoordinator.swift */; };
+		BFEB632A2745CA9E00086013 /* Combo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFEB63292745CA9E00086013 /* Combo.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BFEB63212745AABE00086013 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		BFEB63232745AAF000086013 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BFEB63262745B54700086013 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		BFEB63292745CA9E00086013 /* Combo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Combo.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		BFEB631B2745A62400086013 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BFEB63282745CA8400086013 /* Fonts */,
 				BFEB63192745A1A200086013 /* Coordinator.swift */,
 			);
 			path = Utility;
@@ -109,6 +112,14 @@
 				BFEB63262745B54700086013 /* MainCoordinator.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BFEB63282745CA8400086013 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BFEB63292745CA9E00086013 /* Combo.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFEB630F274573D800086013 /* LaunchScreen.storyboard in Resources */,
+				BFEB632A2745CA9E00086013 /* Combo.ttf in Resources */,
 				BFEB630C274573D800086013 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
