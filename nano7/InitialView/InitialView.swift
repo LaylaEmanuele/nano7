@@ -28,7 +28,7 @@ class InitialView: UIView {
 // MARK: - Layout Setup
 extension InitialView {
     private func makeTitleLabel() -> UILabel {
-        var label = UILabel()
+        let label = UILabel()
         label.text = "Let's walk and Draw"
         return label
     }

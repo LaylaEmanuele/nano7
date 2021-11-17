@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class InitialViewController: UIViewController {
     // MARK: - Variables and Constants
     private unowned var screenView: InitialView { return self.view as! InitialView }
     private var dealerSelectionView = InitialView()
