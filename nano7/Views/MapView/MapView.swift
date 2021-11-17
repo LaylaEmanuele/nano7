@@ -1,5 +1,5 @@
 //
-//  InitialView.swift
+//  MapView.swift
 //  nano7
 //
 //  Created by Layla Emanuele on 17/11/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InitialView: UIView {
+class MapView: UIView {
     // MARK: - Init
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,13 +26,13 @@ class InitialView: UIView {
     
 }
 // MARK: - Layout Setup
-extension InitialView {
+extension MapView {
     private func makeTitleLabel() -> UILabel {
         let label = UILabel()
-        label.text = "Let's walk and Draw"
+        label.text = "TROCOU"
         return label
     }
-
+    
     private func addViews() {
         addSubview(titleLabel)
     }

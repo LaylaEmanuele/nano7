@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  nano7
 //
 //  Created by Layla Emanuele on 17/11/21.
@@ -7,22 +7,21 @@
 
 import UIKit
 
-class InitialViewController: UIViewController {
+class MapViewController: UIViewController, Coordinating {
+    var coordinater: Coordinator?
+    
     // MARK: - Variables and Constants
-    private unowned var screenView: InitialView { return self.view as! InitialView }
-    private var dealerSelectionView = InitialView()
+    private unowned var screenView: MapView { return self.view as! MapView }
+    private var dealerSelectionView = MapView()
     
     // MARK: - LifeCycle
-    convenience init() {
-        self.init()
-    }
     override func loadView() {
         super.view = dealerSelectionView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dealerSelectionView.backgroundColor = .orange
+        dealerSelectionView.backgroundColor = .red
     }
     
     // MARK: - Setup
@@ -31,7 +30,7 @@ class InitialViewController: UIViewController {
     }
     
     private func setupNavigation() {
-       
+        
     }
     
 }
