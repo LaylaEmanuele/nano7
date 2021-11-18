@@ -37,7 +37,7 @@ class InitialViewController: UIViewController, Coordinating {
     private func setupNavigation() {
        
     }
-    @objc func didTapButton(){
+    @objc func didTapButton() {
         coordinater?.eventOcurred(with: .buttonTapped)
     }
 }

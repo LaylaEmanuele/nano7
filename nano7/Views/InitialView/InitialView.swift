@@ -20,10 +20,10 @@ class InitialView: UIView {
     }
     
     //MARK: - Views
-    lazy var titleLabel = makeLabel(text: "Let's Walk and Draw")
-    lazy var bottomLabel = makeLabel(text: "Let's Go")
+    lazy var titleImg = makeImage(imageName: "titleImg")
     lazy public var button = makeButton()
-    lazy var mainImage = makeImage(imageName: "mainImage")
+    lazy var mainImage = makeImage(imageName: "mainImg")
+    lazy var bgImg = makeImage(imageName: "bgImg")
     
     
     //MARK: - Layout Setup
@@ -49,47 +49,49 @@ extension InitialView {
     private func makeButton() -> UIButton {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "playButton"), for: .normal)
+        
         return button
     }
     
     private func addViews() {
-        addSubview(titleLabel)
-        addSubview(bottomLabel)
-        addSubview(button)
+        addSubview(titleImg)
         addSubview(mainImage)
+        addSubview(button)
+        addSubview(bgImg)
     }
     
     //MARK: - Add Constraints
     private func addConstraints() {
-        titleAutoLayout()
+        titleImgAutoLayout()
         mainImageAutoLayout()
         buttonAutoLayout()
-        bottomLabelAutoLayout()
+        bgImgeAutoLayout()
     }
     
-    func titleAutoLayout() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: mainImage.topAnchor).isActive = true
+    func titleImgAutoLayout() {
+        titleImg.translatesAutoresizingMaskIntoConstraints = false
+        titleImg.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        titleImg.centerYAnchor.constraint(equalTo: mainImage.topAnchor, constant: -30).isActive = true
     }
     
     func mainImageAutoLayout() {
         mainImage.translatesAutoresizingMaskIntoConstraints = false
         mainImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        mainImage.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -100).isActive = true
+        mainImage.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor).isActive = true
         mainImage.layer.zPosition = -1
     }
     
     func buttonAutoLayout() {
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 10).isActive = true
-        button.centerYAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 100).isActive = true
+        button.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: -30).isActive = true
     }
     
-    func bottomLabelAutoLayout() {
-        bottomLabel.translatesAutoresizingMaskIntoConstraints = false
-        bottomLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        bottomLabel.centerYAnchor.constraint(equalTo: button.bottomAnchor, constant: 40).isActive = true
+    func bgImgeAutoLayout() {
+        bgImg.translatesAutoresizingMaskIntoConstraints = false
+        bgImg.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        bgImg.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        bgImg.layer.zPosition = -2
     }
     
 }
