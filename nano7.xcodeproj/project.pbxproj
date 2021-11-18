@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3038C0222746CFDC004C482D /* MarkViewTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */; };
 		3038C0232746CFDC004C482D /* MarkViewTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038C0212746CFDC004C482D /* MarkViewTabBarViewController.swift */; };
+		7B2ED5922746DD3400474590 /* MarkViewTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */; };
 		8D96A72C2746068600EFD745 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D96A72B2746068600EFD745 /* Settings.bundle */; };
 		BFEB6303274573D600086013 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6302274573D600086013 /* AppDelegate.swift */; };
 		BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6304274573D600086013 /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkViewTabBar.xib; sourceTree = "<group>"; };
 		3038C0212746CFDC004C482D /* MarkViewTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewTabBarViewController.swift; sourceTree = "<group>"; };
+		7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewTabBarWrapper.swift; sourceTree = "<group>"; };
 		8D96A72B2746068600EFD745 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BFEB62FF274573D600086013 /* nano7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nano7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEB6302274573D600086013 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		3038C01E2746CFDC004C482D /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */,
 				3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */,
 				3038C0202746CFDC004C482D /* Controllers */,
 			);
@@ -233,6 +236,7 @@
 				3038C0232746CFDC004C482D /* MarkViewTabBarViewController.swift in Sources */,
 				BFEB6307274573D600086013 /* InitialViewController.swift in Sources */,
 				BFEB6317274591BC00086013 /* InitialView.swift in Sources */,
+				7B2ED5922746DD3400474590 /* MarkViewTabBarWrapper.swift in Sources */,
 				BFEB631A2745A1A200086013 /* Coordinator.swift in Sources */,
 				BFEB6303274573D600086013 /* AppDelegate.swift in Sources */,
 				BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */,
