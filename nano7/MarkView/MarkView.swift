@@ -16,16 +16,17 @@ class MarkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let annotation = MKPointAnnotation()
+        addPinMap(coordinate: CLLocationCoordinate2D(latitude: -15.84173355916682, longitude: -48.04400844933156))
+        addPinMap(coordinate: CLLocationCoordinate2D(latitude: -15.83373814676899, longitude: -47.95538323261778))
         
-        annotation.coordinate = CLLocationCoordinate2D(latitude: -22.9035393, longitude: -43.2095869)
-        
-        mapView.addAnnotation(annotation)
+        //let region = MKCoordinateRegion()
         
     }
     
-    func addPinMap(  ){
-        
+    func addPinMap(coordinate: CLLocationCoordinate2D){
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
     }
     
 }
