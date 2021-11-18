@@ -41,6 +41,8 @@ extension InitialView {
         let label = UILabel()
         label.text = text
         label.font = UIFont(name: "Combo", size: 36.0)
+        label.textColor = UIColor(named: "corTexto")
+        //label.tintColor = UIColor(named: "corTexto")
         return label
     }
 
