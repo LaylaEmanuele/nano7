@@ -60,10 +60,7 @@
 		3038C01E2746CFDC004C482D /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				7B2ED5952746DFA000474590 /* MarkViewTabBarDelegate.swift */,
-				7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */,
-				3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */,
-				3038C0202746CFDC004C482D /* Controllers */,
+				7B2ED5972746F08F00474590 /* MarkView */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -83,6 +80,26 @@
 				BFEB63192745A1A200086013 /* Coordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7B2ED5972746F08F00474590 /* MarkView */ = {
+			isa = PBXGroup;
+			children = (
+				7B2ED5952746DFA000474590 /* MarkViewTabBarDelegate.swift */,
+				7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */,
+				3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */,
+				3038C0202746CFDC004C482D /* Controllers */,
+			);
+			path = MarkView;
+			sourceTree = "<group>";
+		};
+		7B2ED5982746F0B300474590 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BFEB6302274573D600086013 /* AppDelegate.swift */,
+				BFEB6304274573D600086013 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		BFEB62F6274573D500086013 = {
@@ -105,8 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				3038C01E2746CFDC004C482D /* XIBs */,
-				BFEB6302274573D600086013 /* AppDelegate.swift */,
-				BFEB6304274573D600086013 /* SceneDelegate.swift */,
 				BFEB63252745B4F000086013 /* Views */,
 				BFEB631B2745A62400086013 /* Utility */,
 				BFEB630B274573D800086013 /* Assets.xcassets */,
@@ -129,6 +144,7 @@
 		BFEB631B2745A62400086013 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				7B2ED5982746F0B300474590 /* Delegate */,
 				3038C0242746D670004C482D /* Coordinator */,
 				BFEB63282745CA8400086013 /* Fonts */,
 			);
