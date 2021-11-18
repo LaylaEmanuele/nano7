@@ -9,7 +9,8 @@ import UIKit
 
 class MarkViewTabBarViewController: UIView {
     
-
+    public var delegate: MarkViewTabBarDelegate?
+    
     @IBOutlet weak var qntLabel: UILabel!
     
     override func awakeFromNib() {
@@ -19,7 +20,7 @@ class MarkViewTabBarViewController: UIView {
     
     @IBAction func finishButton(_ sender: UIButton) {
         
-        print("finalizar")
+        delegate?.finishButtonPressed()
         
     }
     

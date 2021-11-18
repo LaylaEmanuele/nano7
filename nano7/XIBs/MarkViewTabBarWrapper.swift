@@ -24,8 +24,8 @@ class MarkViewTabBarWrapper {
         if let myNib = nib {
             view.addSubview(myNib)
             
-            // Constraint: height = 128
-            let constraint_height = NSLayoutConstraint(item: myNib, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 128)
+            // Constraint: height = 148
+            let constraint_height = NSLayoutConstraint(item: myNib, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 148)
             
             myNib.addConstraint(constraint_height)
             
