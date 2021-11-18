@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D96A72C2746068600EFD745 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D96A72B2746068600EFD745 /* Settings.bundle */; };
 		BFEB6303274573D600086013 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6302274573D600086013 /* AppDelegate.swift */; };
 		BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6304274573D600086013 /* SceneDelegate.swift */; };
 		BFEB6307274573D600086013 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6306274573D600086013 /* InitialViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D96A72B2746068600EFD745 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BFEB62FF274573D600086013 /* nano7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nano7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEB6302274573D600086013 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFEB6304274573D600086013 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				BFEB630B274573D800086013 /* Assets.xcassets */,
 				BFEB630D274573D800086013 /* LaunchScreen.storyboard */,
 				BFEB6310274573D800086013 /* Info.plist */,
+				8D96A72B2746068600EFD745 /* Settings.bundle */,
 			);
 			path = nano7;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D96A72C2746068600EFD745 /* Settings.bundle in Resources */,
 				BFEB630F274573D800086013 /* LaunchScreen.storyboard in Resources */,
 				BFEB632A2745CA9E00086013 /* Combo.ttf in Resources */,
 				BFEB630C274573D800086013 /* Assets.xcassets in Resources */,

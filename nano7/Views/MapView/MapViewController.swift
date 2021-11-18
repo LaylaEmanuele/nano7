@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MapViewController: UIViewController, Coordinating {
+class MapViewController: UIViewController, Coordinating, CLLocationManagerDelegate {
     var coordinater: Coordinator?
+    var locationManager: CLLocationManager?
     
     // MARK: - Variables and Constants
     private unowned var screenView: MapView { return self.view as! MapView }
@@ -22,6 +24,7 @@ class MapViewController: UIViewController, Coordinating {
     override func viewDidLoad() {
         super.viewDidLoad()
         dealerSelectionView.backgroundColor = .red
+        askLocationPerms()
     }
     
     // MARK: - Setup
@@ -33,5 +36,23 @@ class MapViewController: UIViewController, Coordinating {
         
     }
     
+    private func askLocationPerms() {
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    print("Poggers")
+                }
+            }
+        } else if status == .denied {
+            print("Rest in pepperoni")
+            UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
+        }
+    }
 }
 

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class MapView: UIView {
     // MARK: - Init
@@ -21,6 +23,7 @@ class MapView: UIView {
     
     //MARK: - Views
     lazy var titleLabel = makeTitleLabel()
+    lazy var map = MKMapView()
     
     //MARK: - Layout Setup
     
@@ -34,12 +37,14 @@ extension MapView {
     }
     
     private func addViews() {
-        addSubview(titleLabel)
+        //addSubview(titleLabel)
+        addSubview(map)
     }
     
     //MARK: - Add Constraints
     private func addConstraints() {
-        titleAutoLayout()
+        //titleAutoLayout()
+        mapAutoLayout()
     }
     
     func titleAutoLayout() {
@@ -48,5 +53,13 @@ extension MapView {
         titleLabel.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -300).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 75).isActive = true
         titleLabel.widthAnchor.constraint(equalToConstant: 87).isActive = true
+    }
+    
+    func mapAutoLayout() {
+        map.translatesAutoresizingMaskIntoConstraints = false
+        map.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor).isActive = true
+        map.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
+        map.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        map.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 }
