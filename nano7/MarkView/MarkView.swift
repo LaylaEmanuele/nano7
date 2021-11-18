@@ -13,6 +13,8 @@ class MarkViewController: UIViewController, CLLocationManagerDelegate, UIGesture
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var targetView: UIView!
+    
     let locationManager = CLLocationManager()
     
     var numberOfPins = 0
@@ -27,6 +29,8 @@ class MarkViewController: UIViewController, CLLocationManagerDelegate, UIGesture
         
 //        addPinMap(CLLocationCoordinate2D(latitude: -15.84173355916682, longitude: -48.04400844933156))
 //        addPinMap(CLLocationCoordinate2D(latitude: -15.83373814676899, longitude: -47.95538323261778))
+        
+        presentTabBar()
         
     }
     
@@ -91,6 +95,28 @@ class MarkViewController: UIViewController, CLLocationManagerDelegate, UIGesture
         mapView.addAnnotation(pin)
     }
     
-    
-    
+    func presentTabBar() {
+        
+        let nib = Bundle.main.loadNibNamed("MarkViewTabBar",
+                                            owner: self,
+                                            options: nil)?.first as? MarkViewTabBarViewController ?? nil
+        
+        if let myNib = nib {
+            targetView.addSubview(myNib)
+            
+            myNib.translatesAutoresizingMaskIntoConstraints = false
+            
+            let constraint_leading = NSLayoutConstraint(item: myNib, attribute: .leading, relatedBy: .equal, toItem: self.targetView, attribute: .leading, multiplier: 1, constant: 0)
+            let constraint_trailing = NSLayoutConstraint(item: myNib, attribute: .trailing, relatedBy: .equal, toItem: self.targetView, attribute: .trailing, multiplier: 1, constant: 0)
+            let constraint_top = NSLayoutConstraint(item: myNib, attribute: .top, relatedBy: .equal, toItem: self.targetView, attribute: .top, multiplier: 1, constant: 0)
+            let constraint_height = NSLayoutConstraint(item: myNib, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 128)
+            
+            self.targetView.addConstraint(constraint_leading)
+            self.targetView.addConstraint(constraint_trailing)
+            self.targetView.addConstraint(constraint_top)
+            
+            myNib.addConstraint(constraint_height)
+            
+        }
+    }
 }
