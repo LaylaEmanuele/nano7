@@ -13,6 +13,8 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
     var coordinater: Coordinator?
     var locationManager: CLLocationManager?
     var numberOfPins = 0
+    var pins = [MKPointAnnotation]()
+    
     
     // MARK: - Variables and Constants
     private unowned var screenView: MapView { return self.view as! MapView }
@@ -102,9 +104,17 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
         numberOfPins = numberOfPins + 1
-        //print("\(numberOfPins)")
         pin.title = "\(numberOfPins)"
         dealerSelectionView.map.addAnnotation(pin)
+        
+        pins.append(pin)
+        
+    }
+    
+    
+    func removeAllPins(){
+        dealerSelectionView.map.removeAnnotations(pins)
+        pins.removeAll()
     }
     
 }

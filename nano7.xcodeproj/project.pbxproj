@@ -70,6 +70,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		3038C0242746D670004C482D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BFEB63262745B54700086013 /* MainCoordinator.swift */,
+				BFEB63192745A1A200086013 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		BFEB62F6274573D500086013 = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +123,8 @@
 		BFEB631B2745A62400086013 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3038C0242746D670004C482D /* Coordinator */,
 				BFEB63282745CA8400086013 /* Fonts */,
-				BFEB63192745A1A200086013 /* Coordinator.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -134,7 +143,6 @@
 			children = (
 				BFEB6318274591C400086013 /* InitialView */,
 				BFEB63202745AA9500086013 /* MapView */,
-				BFEB63262745B54700086013 /* MainCoordinator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
