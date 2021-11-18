@@ -15,30 +15,30 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Uf-gr-Qm8" userLabel="qntImg">
-                    <rect key="frame" x="78" y="15.5" width="55" height="54"/>
+                    <rect key="frame" x="45" y="15.5" width="65" height="64"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="55" id="B6I-K1-91j"/>
-                        <constraint firstAttribute="width" constant="55" id="ZC4-RV-0FN"/>
+                        <constraint firstAttribute="width" constant="65" id="To1-Ke-yHb"/>
+                        <constraint firstAttribute="height" constant="65" id="Y1s-db-Pa4"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu7-UY-dj6" userLabel="qntLabel">
-                    <rect key="frame" x="82.5" y="85" width="46" height="21"/>
+                    <rect key="frame" x="54.5" y="85" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finalizar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh4-7s-0oj" userLabel="finishLabel">
-                    <rect key="frame" x="277" y="85" width="63" height="21"/>
+                    <rect key="frame" x="305" y="85" width="63" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpi-av-nUZ">
-                    <rect key="frame" x="281" y="15" width="55" height="55"/>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpi-av-nUZ" userLabel="finishButton">
+                    <rect key="frame" x="304" y="15" width="65" height="65"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="55" id="oe7-XL-zku"/>
-                        <constraint firstAttribute="height" constant="55" id="y3H-i8-GV8"/>
+                        <constraint firstAttribute="height" constant="65" id="d6p-8v-etp"/>
+                        <constraint firstAttribute="width" constant="65" id="n7b-FU-tQK"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
@@ -50,18 +50,45 @@
                         <action selector="finishButton:" destination="kh3-wP-eYM" eventType="touchUpInside" id="k2L-xw-TkP"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AH-z7-nWX" userLabel="clearButton">
+                    <rect key="frame" x="174.5" y="15" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="PNR-sH-keZ"/>
+                        <constraint firstAttribute="width" constant="65" id="Y5l-wo-dZ7"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="">
+                        <imageReference key="image" image="trash" catalog="system" symbolScale="large"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="clearButton:" destination="kh3-wP-eYM" eventType="touchUpInside" id="Fkm-NX-J8r"/>
+                        <action selector="finishButton:" destination="kh3-wP-eYM" eventType="touchUpInside" id="C47-Jz-XfU"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limpar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgB-oe-IFn" userLabel="clearLabel">
+                    <rect key="frame" x="180.5" y="85" width="53" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="66u-Oy-3su"/>
             <color key="backgroundColor" red="0.52027308940000005" green="0.49454933400000001" blue="0.80787581210000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="66u-Oy-3su" firstAttribute="trailing" secondItem="hpi-av-nUZ" secondAttribute="trailing" constant="78" id="1kb-MT-Zi6"/>
-                <constraint firstItem="0Uf-gr-Qm8" firstAttribute="leading" secondItem="66u-Oy-3su" secondAttribute="leading" constant="78" id="LTk-2e-vMW"/>
-                <constraint firstItem="nh4-7s-0oj" firstAttribute="top" secondItem="hpi-av-nUZ" secondAttribute="bottom" constant="15" id="TkI-Ei-spz"/>
-                <constraint firstItem="nh4-7s-0oj" firstAttribute="centerX" secondItem="hpi-av-nUZ" secondAttribute="centerX" id="YKa-id-BFx"/>
-                <constraint firstItem="Wu7-UY-dj6" firstAttribute="centerX" secondItem="0Uf-gr-Qm8" secondAttribute="centerX" id="bm0-0l-dDs"/>
-                <constraint firstItem="0Uf-gr-Qm8" firstAttribute="top" secondItem="kh3-wP-eYM" secondAttribute="top" constant="15" id="f1i-gh-hds"/>
-                <constraint firstItem="Wu7-UY-dj6" firstAttribute="top" secondItem="0Uf-gr-Qm8" secondAttribute="bottom" constant="15" id="jBf-RJ-BXM"/>
-                <constraint firstItem="hpi-av-nUZ" firstAttribute="top" secondItem="kh3-wP-eYM" secondAttribute="top" constant="15" id="p9z-WP-47I"/>
+                <constraint firstItem="hpi-av-nUZ" firstAttribute="top" secondItem="kh3-wP-eYM" secondAttribute="top" constant="15" id="8kq-O0-Wa6"/>
+                <constraint firstItem="0Uf-gr-Qm8" firstAttribute="leading" secondItem="66u-Oy-3su" secondAttribute="leading" constant="45" id="Ae9-iC-Iyw"/>
+                <constraint firstItem="5AH-z7-nWX" firstAttribute="top" secondItem="kh3-wP-eYM" secondAttribute="top" constant="15" id="GD2-rC-cmK"/>
+                <constraint firstItem="MgB-oe-IFn" firstAttribute="top" secondItem="5AH-z7-nWX" secondAttribute="bottom" constant="5" id="LMa-0t-xej"/>
+                <constraint firstItem="5AH-z7-nWX" firstAttribute="centerX" secondItem="kh3-wP-eYM" secondAttribute="centerX" id="QEq-HN-id5"/>
+                <constraint firstItem="MgB-oe-IFn" firstAttribute="centerX" secondItem="5AH-z7-nWX" secondAttribute="centerX" id="Rbj-af-h46"/>
+                <constraint firstItem="Wu7-UY-dj6" firstAttribute="centerX" secondItem="0Uf-gr-Qm8" secondAttribute="centerX" id="aie-I6-HvO"/>
+                <constraint firstItem="0Uf-gr-Qm8" firstAttribute="top" secondItem="kh3-wP-eYM" secondAttribute="top" constant="15" id="bAn-AP-Qyi"/>
+                <constraint firstItem="nh4-7s-0oj" firstAttribute="top" secondItem="hpi-av-nUZ" secondAttribute="bottom" constant="5" id="lrb-ys-Z40"/>
+                <constraint firstItem="Wu7-UY-dj6" firstAttribute="top" secondItem="0Uf-gr-Qm8" secondAttribute="bottom" constant="5" id="mov-H8-eq9"/>
+                <constraint firstItem="nh4-7s-0oj" firstAttribute="centerX" secondItem="hpi-av-nUZ" secondAttribute="centerX" id="x7C-PW-yyd"/>
+                <constraint firstItem="66u-Oy-3su" firstAttribute="trailing" secondItem="hpi-av-nUZ" secondAttribute="trailing" constant="45" id="zjQ-Pw-oqq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
@@ -78,5 +105,6 @@
     <resources>
         <image name="flag" catalog="system" width="128" height="121"/>
         <image name="mappin.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
     </resources>
 </document>

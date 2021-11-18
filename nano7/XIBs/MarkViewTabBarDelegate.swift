@@ -11,4 +11,6 @@ protocol MarkViewTabBarDelegate {
     
     func finishButtonPressed()
     
+    func clearButtonPressed()
+    
 }

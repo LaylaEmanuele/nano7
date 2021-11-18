@@ -9,9 +9,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, Coordinating, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordinating {
     var coordinater: Coordinator?
     var locationManager: CLLocationManager?
+    var tabBar: MarkViewTabBarWrapper!
+    
     var numberOfPins = 0
     var pins = [MKPointAnnotation]()
     
@@ -27,6 +29,12 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBar = MarkViewTabBarWrapper(owner: self)
+        
+        tabBar.clearPinCount()
+        
+        tabBar.setDelegate(self)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action:#selector(handleTap))
@@ -61,27 +69,6 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
     
     }
     
-    
-    private func askLocationPerms() {
-        locationManager = CLLocationManager()
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
-        //locationManager?.requestWhenInUseAuthorization()
-        
-        locationManager?.startUpdatingLocation()
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        if let location = locations.first{
-            manager.stopUpdatingLocation()
-            render(location)
-        }
-        
-    }
-    
     func render(_ location: CLLocation){
         
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
@@ -103,8 +90,8 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
     func addPinMap(_ coordinate: CLLocationCoordinate2D){
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
-        numberOfPins = numberOfPins + 1
-        pin.title = "\(numberOfPins)"
+        tabBar.increasePinCount()
+        pin.title = "\(tabBar.pinCount)"
         dealerSelectionView.map.addAnnotation(pin)
         
         pins.append(pin)
@@ -115,7 +102,43 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
     func removeAllPins(){
         dealerSelectionView.map.removeAnnotations(pins)
         pins.removeAll()
+        tabBar.clearPinCount()
     }
     
 }
 
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        if let location = locations.first{
+            manager.stopUpdatingLocation()
+            render(location)
+        }
+        
+    }
+    
+    private func askLocationPerms() {
+        locationManager = CLLocationManager()
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
+        //locationManager?.requestWhenInUseAuthorization()
+        
+        locationManager?.startUpdatingLocation()
+        
+    }
+    
+}
+
+extension MapViewController: MarkViewTabBarDelegate {
+    
+    func finishButtonPressed() {
+        // MUDA PARA PRÓXIMA TELA
+    }
+    
+    func clearButtonPressed() {
+        removeAllPins()
+    }
+    
+}

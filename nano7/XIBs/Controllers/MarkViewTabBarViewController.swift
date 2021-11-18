@@ -24,4 +24,9 @@ class MarkViewTabBarViewController: UIView {
         
     }
     
+    @IBAction func clearButton(_ sender: UIButton) {
+        
+        delegate?.clearButtonPressed()
+        
+    }
 }
