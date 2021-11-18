@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, Coordinating, CLLocationManagerDelegate {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordinating {
     var coordinater: Coordinator?
     var locationManager: CLLocationManager?
+    var tabBar: MarkViewTabBarWrapper!
+    
+    var numberOfPins = 0
+    var pins = [MKPointAnnotation]()
+    
     
     // MARK: - Variables and Constants
     private unowned var screenView: MapView { return self.view as! MapView }
@@ -23,9 +29,26 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dealerSelectionView.backgroundColor = .red
+        
+        tabBar = MarkViewTabBarWrapper(owner: self)
+        
+        tabBar.clearPinCount()
+        
+        tabBar.setDelegate(self)
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self,
+                                                       action:#selector(handleTap))
+            gestureRecognizer.delegate = self
+            dealerSelectionView.map.addGestureRecognizer(gestureRecognizer)
+        
+        //addPinMap(CLLocationCoordinate2D(latitude: -15.84173355916682, longitude: -48.04400844933156))
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         askLocationPerms()
     }
+    
     
     // MARK: - Setup
     private func setup() {
@@ -36,23 +59,86 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
         
     }
     
-    private func askLocationPerms() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
+    @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
+        
+        let location = gestureRecognizer.location(in: dealerSelectionView.map)
+        let coordinate = dealerSelectionView.map.convert(location, toCoordinateFrom: dealerSelectionView.map)
+        
+        // Add annotation:
+        addPinMap(coordinate)
+    
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    print("Poggers")
-                }
-            }
-        } else if status == .denied {
-            print("Rest in pepperoni")
-            UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
-        }
+    func render(_ location: CLLocation){
+        
+        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
+                                                longitude: location.coordinate.longitude)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.009,
+                                    longitudeDelta: 0.009)
+        
+        let region = MKCoordinateRegion(center: coordinate,
+                                        span: span)
+        
+        dealerSelectionView.map.setRegion(region, animated: true)
+        
+        // TELL ME WHY-> Para confirmar a numeração correta dos pins
+        //addPinMap(coordinate)
+        //numberOfPins = 1
     }
+    
+    func addPinMap(_ coordinate: CLLocationCoordinate2D){
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinate
+        tabBar.increasePinCount()
+        pin.title = "\(tabBar.pinCount)"
+        dealerSelectionView.map.addAnnotation(pin)
+        
+        pins.append(pin)
+        
+    }
+    
+    
+    func removeAllPins(){
+        dealerSelectionView.map.removeAnnotations(pins)
+        pins.removeAll()
+        tabBar.clearPinCount()
+    }
+    
 }
 
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        if let location = locations.first{
+            manager.stopUpdatingLocation()
+            render(location)
+        }
+        
+    }
+    
+    private func askLocationPerms() {
+        locationManager = CLLocationManager()
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
+        //locationManager?.requestWhenInUseAuthorization()
+        
+        locationManager?.startUpdatingLocation()
+        
+    }
+    
+}
+
+extension MapViewController: MarkViewTabBarDelegate {
+    
+    func finishButtonPressed() {
+        // MUDA PARA PRÓXIMA TELA
+    }
+    
+    func clearButtonPressed() {
+        removeAllPins()
+    }
+    
+}

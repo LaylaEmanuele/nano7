@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3038C0222746CFDC004C482D /* MarkViewTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */; };
+		3038C0232746CFDC004C482D /* MarkViewTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038C0212746CFDC004C482D /* MarkViewTabBarViewController.swift */; };
+		7B2ED5922746DD3400474590 /* MarkViewTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */; };
+		7B2ED5962746DFA100474590 /* MarkViewTabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5952746DFA000474590 /* MarkViewTabBarDelegate.swift */; };
 		8D96A72C2746068600EFD745 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D96A72B2746068600EFD745 /* Settings.bundle */; };
 		BFEB6303274573D600086013 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6302274573D600086013 /* AppDelegate.swift */; };
 		BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6304274573D600086013 /* SceneDelegate.swift */; };
@@ -22,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkViewTabBar.xib; sourceTree = "<group>"; };
+		3038C0212746CFDC004C482D /* MarkViewTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewTabBarViewController.swift; sourceTree = "<group>"; };
+		7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewTabBarWrapper.swift; sourceTree = "<group>"; };
+		7B2ED5952746DFA000474590 /* MarkViewTabBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewTabBarDelegate.swift; sourceTree = "<group>"; };
 		8D96A72B2746068600EFD745 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BFEB62FF274573D600086013 /* nano7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nano7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEB6302274573D600086013 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3038C01E2746CFDC004C482D /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				7B2ED5972746F08F00474590 /* MarkView */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		3038C0202746CFDC004C482D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3038C0212746CFDC004C482D /* MarkViewTabBarViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3038C0242746D670004C482D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BFEB63262745B54700086013 /* MainCoordinator.swift */,
+				BFEB63192745A1A200086013 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7B2ED5972746F08F00474590 /* MarkView */ = {
+			isa = PBXGroup;
+			children = (
+				7B2ED5952746DFA000474590 /* MarkViewTabBarDelegate.swift */,
+				7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */,
+				3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */,
+				3038C0202746CFDC004C482D /* Controllers */,
+			);
+			path = MarkView;
+			sourceTree = "<group>";
+		};
+		7B2ED5982746F0B300474590 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BFEB6302274573D600086013 /* AppDelegate.swift */,
+				BFEB6304274573D600086013 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		BFEB62F6274573D500086013 = {
 			isa = PBXGroup;
 			children = (
@@ -68,8 +121,7 @@
 		BFEB6301274573D600086013 /* nano7 */ = {
 			isa = PBXGroup;
 			children = (
-				BFEB6302274573D600086013 /* AppDelegate.swift */,
-				BFEB6304274573D600086013 /* SceneDelegate.swift */,
+				3038C01E2746CFDC004C482D /* XIBs */,
 				BFEB63252745B4F000086013 /* Views */,
 				BFEB631B2745A62400086013 /* Utility */,
 				BFEB630B274573D800086013 /* Assets.xcassets */,
@@ -92,8 +144,9 @@
 		BFEB631B2745A62400086013 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				7B2ED5982746F0B300474590 /* Delegate */,
+				3038C0242746D670004C482D /* Coordinator */,
 				BFEB63282745CA8400086013 /* Fonts */,
-				BFEB63192745A1A200086013 /* Coordinator.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -112,7 +165,6 @@
 			children = (
 				BFEB6318274591C400086013 /* InitialView */,
 				BFEB63202745AA9500086013 /* MapView */,
-				BFEB63262745B54700086013 /* MainCoordinator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D96A72C2746068600EFD745 /* Settings.bundle in Resources */,
+				3038C0222746CFDC004C482D /* MarkViewTabBar.xib in Resources */,
 				BFEB630F274573D800086013 /* LaunchScreen.storyboard in Resources */,
 				BFEB632A2745CA9E00086013 /* Combo.ttf in Resources */,
 				BFEB630C274573D800086013 /* Assets.xcassets in Resources */,
@@ -199,12 +252,15 @@
 			files = (
 				BFEB63222745AABE00086013 /* MapView.swift in Sources */,
 				BFEB63272745B54700086013 /* MainCoordinator.swift in Sources */,
+				3038C0232746CFDC004C482D /* MarkViewTabBarViewController.swift in Sources */,
 				BFEB6307274573D600086013 /* InitialViewController.swift in Sources */,
 				BFEB6317274591BC00086013 /* InitialView.swift in Sources */,
+				7B2ED5922746DD3400474590 /* MarkViewTabBarWrapper.swift in Sources */,
 				BFEB631A2745A1A200086013 /* Coordinator.swift in Sources */,
 				BFEB6303274573D600086013 /* AppDelegate.swift in Sources */,
 				BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */,
 				BFEB63242745AAF000086013 /* MapViewController.swift in Sources */,
+				7B2ED5962746DFA100474590 /* MarkViewTabBarDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +401,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WS398ST7LH;
+				DEVELOPMENT_TEAM = 342XMJ2A8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nano7/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -358,6 +414,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = AcademyUCB.nano7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -373,7 +430,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WS398ST7LH;
+				DEVELOPMENT_TEAM = 342XMJ2A8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nano7/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
