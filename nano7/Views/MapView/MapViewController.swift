@@ -12,6 +12,7 @@ import CoreLocation
 class MapViewController: UIViewController, Coordinating, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     var coordinater: Coordinator?
     var locationManager: CLLocationManager?
+    var numberOfPins = 0
     
     // MARK: - Variables and Constants
     private unowned var screenView: MapView { return self.view as! MapView }
@@ -24,7 +25,6 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        askLocationPerms()
         
         let gestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action:#selector(handleTap))
@@ -34,6 +34,11 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
         //addPinMap(CLLocationCoordinate2D(latitude: -15.84173355916682, longitude: -48.04400844933156))
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        askLocationPerms()
+    }
+    
     
     // MARK: - Setup
     private func setup() {
@@ -66,24 +71,13 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus, didUpdateLocations locations: [CLLocation]) {
-        if status == .authorizedAlways {
-            
-            if let location = locations.first{
-                
-                manager.stopUpdatingLocation()
-                render(location)
-            }
-            
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    print("Poggers")
-                }
-            }
-        } else if status == .denied {
-            print("Rest in pepperoni")
-            UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        if let location = locations.first{
+            manager.stopUpdatingLocation()
+            render(location)
         }
+        
     }
     
     func render(_ location: CLLocation){
@@ -99,16 +93,17 @@ class MapViewController: UIViewController, Coordinating, CLLocationManagerDelega
         
         dealerSelectionView.map.setRegion(region, animated: true)
         
-        //addPinMap(coordinate)
         // TELL ME WHY-> Para confirmar a numeração correta dos pins
+        //addPinMap(coordinate)
         //numberOfPins = 1
     }
     
     func addPinMap(_ coordinate: CLLocationCoordinate2D){
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
-//        numberOfPins = numberOfPins + 1
-//        pin.title = "\(numberOfPins)"
+        numberOfPins = numberOfPins + 1
+        //print("\(numberOfPins)")
+        pin.title = "\(numberOfPins)"
         dealerSelectionView.map.addAnnotation(pin)
     }
     
