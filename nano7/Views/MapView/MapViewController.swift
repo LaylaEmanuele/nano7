@@ -10,9 +10,47 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordinating, MKMapViewDelegate {
+    
+    enum TabBarType {
+        case MarkView
+        case ShareView
+    }
+    
     var coordinater: Coordinator?
     var locationManager: CLLocationManager?
-    var tabBar: MarkViewTabBarWrapper!
+    
+    struct TabBar {
+        var type: TabBarType {
+            didSet {
+                switch type {
+                case .MarkView:
+                    print("aaaaaaaaaa")
+                    tabBarRef = (MarkViewTabBarWrapper(owner: owner), nil)
+                case .ShareView:
+                    tabBarRef = (nil, ShareViewTabBarWrapper(owner: owner))
+                }
+            }
+        }
+        private var owner: UIViewController
+        
+        private var tabBarRef: (MarkViewTabBarWrapper?, ShareViewTabBarWrapper?)
+        
+        func getMarkView() -> MarkViewTabBarWrapper? {
+            tabBarRef.0
+        }
+        
+        func getShareView() -> ShareViewTabBarWrapper? {
+            tabBarRef.1
+        }
+        
+        init(owner: UIViewController) {
+            self.owner = owner
+            self.type = .MarkView
+        }
+        
+    }
+
+    var tabBar: TabBar!
     
     var pins = [MKPointAnnotation]()
     
@@ -29,11 +67,17 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar = MarkViewTabBarWrapper(owner: self)
+        tabBar = TabBar(owner: self)
         
-        tabBar.clearPinCount()
+        tabBar.type = .MarkView
         
-        tabBar.setDelegate(self)
+        if let markView = tabBar.getMarkView() {
+
+            markView.clearPinCount()
+
+            markView.setDelegate(self)
+
+        }
         
         let gestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action:#selector(handleTap))
@@ -90,21 +134,27 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
     
     //MARK: - ADD Pin in Map
     func addPinMap(_ coordinate: CLLocationCoordinate2D){
-        let pin = MKPointAnnotation()
-        pin.coordinate = coordinate
-        tabBar.increasePinCount()
-        pin.title = "\(tabBar.pinCount)"
-        dealerSelectionView.map.addAnnotation(pin)
         
-        pins.append(pin)
+        if let markView = tabBar.getMarkView() {
         
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate
+            markView.increasePinCount()
+            pin.title = "\(markView.pinCount)"
+            dealerSelectionView.map.addAnnotation(pin)
+            
+            pins.append(pin)
+        
+        }
     }
     
     
     func removeAllPins(){
         dealerSelectionView.map.removeAnnotations(pins)
         pins.removeAll()
-        tabBar.clearPinCount()
+        if let markView = tabBar.getMarkView() {
+            markView.clearPinCount()
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -143,37 +193,69 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: MarkViewTabBarDelegate {
     
     func finishButtonPressed() {
-        for index in 1..<pins.count {
-            print("INDEX >>> \(index)")
-            let sourcePlaceMark = MKPlacemark(coordinate: pins[index-1].coordinate)
-            let destinantionPlaceMark = MKPlacemark(coordinate: pins[index].coordinate)
-            
-            let directionRequest = MKDirections.Request()
-            directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
-            directionRequest.destination = MKMapItem(placemark: destinantionPlaceMark)
-            directionRequest.transportType = .automobile
-            
-            let directions = MKDirections(request: directionRequest)
-            directions.calculate{ (response , error) in
-                guard let directionResponse = response else{
-                    if let error = error{
-                        print("Erro nas direções==\(error.localizedDescription)")
+        if pins.count > 1 {
+            for index in 1..<pins.count {
+                print("INDEX >>> \(index)")
+                let sourcePlaceMark = MKPlacemark(coordinate: pins[index-1].coordinate)
+                let destinantionPlaceMark = MKPlacemark(coordinate: pins[index].coordinate)
+                
+                let directionRequest = MKDirections.Request()
+                directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
+                directionRequest.destination = MKMapItem(placemark: destinantionPlaceMark)
+                directionRequest.transportType = .automobile
+                
+                let directions = MKDirections(request: directionRequest)
+                directions.calculate{ (response , error) in
+                    guard let directionResponse = response else{
+                        if let error = error{
+                            print("Erro nas direções==\(error.localizedDescription)")
+                        }
+                        return
                     }
-                    return
+                    let route = directionResponse.routes[0]
+                    self.screenView.map.addOverlay(route.polyline, level: .aboveRoads)
+                    let rect = route.polyline.boundingMapRect
+                    self.screenView.map.setRegion(MKCoordinateRegion(rect), animated: true)
                 }
-                let route = directionResponse.routes[0]
-                self.screenView.map.addOverlay(route.polyline, level: .aboveRoads)
-                let rect = route.polyline.boundingMapRect
-                self.screenView.map.setRegion(MKCoordinateRegion(rect), animated: true)
             }
+            
+            // Show ShareView tab bar
+            if let markView = tabBar.getMarkView() {
+                markView.dismissView()
+            }
+            tabBar.type = .ShareView
+        
+            if let shareView = tabBar.getShareView() {
+
+                shareView.setDelegate(self)
+
+            }
+            
         }
-        
-        
-        
     }
     
     func clearButtonPressed() {
         removeAllPins()
     }
+    
+}
+
+extension MapViewController: ShareViewTabBarDelegate {
+    
+    func backButtonPresesd() {
+        // pop view aq
+        print("voltar view")
+    }
+    
+    func downloadButtonPressed() {
+        print("download")
+//        DataShareHandler.saveImage(from: view)
+    }
+    
+    func shareButtonPressed() {
+        print("share")
+//        DataShareHandler.shareImage(from: view, presentOn: self)
+    }
+    
     
 }

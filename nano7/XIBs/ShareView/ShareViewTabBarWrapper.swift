@@ -7,15 +7,15 @@
 
 import UIKit
 
-class ShareViewTabBar {
+class ShareViewTabBarWrapper {
     
-    public let nib: MarkViewTabBarViewController?
+    public let nib: ShareViewTabBarViewController?
     
     init(owner viewController: UIViewController) {
         
-        nib = Bundle.main.loadNibNamed("MarkViewTabBar",
+        nib = Bundle.main.loadNibNamed("ShareViewTabBar",
                                             owner: viewController,
-                                            options: nil)?.first as? MarkViewTabBarViewController ?? nil
+                                            options: nil)?.first as? ShareViewTabBarViewController ?? nil
         
         if let myNib = nib {
             if let subView = viewController.view {
@@ -44,7 +44,7 @@ class ShareViewTabBar {
         }
     }
     
-    public func setDelegate(_ delegate: MarkViewTabBarDelegate) {
+    public func setDelegate(_ delegate: ShareViewTabBarDelegate) {
         nib!.delegate = delegate
     }
     

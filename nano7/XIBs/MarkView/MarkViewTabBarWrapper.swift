@@ -11,6 +11,8 @@ class MarkViewTabBarWrapper {
     
     public let nib: MarkViewTabBarViewController?
     
+    private var barOwner: UIViewController?
+    
     private var pinQuantity = 0
     
     public var pinCount: Int {
@@ -19,11 +21,16 @@ class MarkViewTabBarWrapper {
     
     init(owner viewController: UIViewController) {
         
+        barOwner = viewController
+        
         nib = Bundle.main.loadNibNamed("MarkViewTabBar",
                                             owner: viewController,
                                             options: nil)?.first as? MarkViewTabBarViewController ?? nil
         
         if let myNib = nib {
+            
+            myNib.tag = 42
+            
             if let subView = viewController.view {
                 
                 subView.addSubview(myNib)
@@ -52,6 +59,12 @@ class MarkViewTabBarWrapper {
     
     public func setDelegate(_ delegate: MarkViewTabBarDelegate) {
         nib!.delegate = delegate
+    }
+    
+    public func dismissView() {
+        if let viewWithTag = barOwner?.view.viewWithTag(42){
+            viewWithTag.removeFromSuperview()
+        }
     }
     
 }
