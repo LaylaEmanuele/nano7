@@ -15,6 +15,7 @@
 		7B2ED59E2746FCFB00474590 /* ShareViewTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED59D2746FCFB00474590 /* ShareViewTabBarViewController.swift */; };
 		7B2ED5A12746FE2400474590 /* ShareViewTabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5A02746FE2400474590 /* ShareViewTabBarDelegate.swift */; };
 		7B2ED5A32746FE7D00474590 /* ShareViewTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5A22746FE7D00474590 /* ShareViewTabBarWrapper.swift */; };
+		7B2ED5A52747439600474590 /* DataShareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5A42747439600474590 /* DataShareHandler.swift */; };
 		8D96A72C2746068600EFD745 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D96A72B2746068600EFD745 /* Settings.bundle */; };
 		BFEB6303274573D600086013 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6302274573D600086013 /* AppDelegate.swift */; };
 		BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6304274573D600086013 /* SceneDelegate.swift */; };
@@ -38,6 +39,7 @@
 		7B2ED59D2746FCFB00474590 /* ShareViewTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewTabBarViewController.swift; sourceTree = "<group>"; };
 		7B2ED5A02746FE2400474590 /* ShareViewTabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewTabBarDelegate.swift; sourceTree = "<group>"; };
 		7B2ED5A22746FE7D00474590 /* ShareViewTabBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewTabBarWrapper.swift; sourceTree = "<group>"; };
+		7B2ED5A42747439600474590 /* DataShareHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShareHandler.swift; sourceTree = "<group>"; };
 		8D96A72B2746068600EFD745 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BFEB62FF274573D600086013 /* nano7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nano7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEB6302274573D600086013 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				7B2ED5982746F0B300474590 /* Delegate */,
 				3038C0242746D670004C482D /* Coordinator */,
 				BFEB63282745CA8400086013 /* Fonts */,
+				7B2ED5A42747439600474590 /* DataShareHandler.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */,
 				BFEB63242745AAF000086013 /* MapViewController.swift in Sources */,
 				7B2ED5A32746FE7D00474590 /* ShareViewTabBarWrapper.swift in Sources */,
+				7B2ED5A52747439600474590 /* DataShareHandler.swift in Sources */,
 				7B2ED5962746DFA100474590 /* MarkViewTabBarDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
