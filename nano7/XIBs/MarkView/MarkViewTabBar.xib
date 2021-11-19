@@ -69,7 +69,6 @@
                     </buttonConfiguration>
                     <connections>
                         <action selector="clearButton:" destination="kh3-wP-eYM" eventType="touchUpInside" id="Fkm-NX-J8r"/>
-                        <action selector="finishButton:" destination="kh3-wP-eYM" eventType="touchUpInside" id="C47-Jz-XfU"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limpar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgB-oe-IFn" userLabel="clearLabel">

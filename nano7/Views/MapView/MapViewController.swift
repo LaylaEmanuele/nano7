@@ -9,12 +9,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordinating {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordinating, MKMapViewDelegate {
     var coordinater: Coordinator?
     var locationManager: CLLocationManager?
     var tabBar: MarkViewTabBarWrapper!
     
-    var numberOfPins = 0
     var pins = [MKPointAnnotation]()
     
     
@@ -42,6 +41,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
             dealerSelectionView.map.addGestureRecognizer(gestureRecognizer)
         
         //addPinMap(CLLocationCoordinate2D(latitude: -15.84173355916682, longitude: -48.04400844933156))
+
+        self.screenView.map.delegate = self
         
     }
     
@@ -64,6 +65,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
         let location = gestureRecognizer.location(in: dealerSelectionView.map)
         let coordinate = dealerSelectionView.map.convert(location, toCoordinateFrom: dealerSelectionView.map)
         
+      
+        
         // Add annotation:
         addPinMap(coordinate)
     
@@ -80,13 +83,12 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
         let region = MKCoordinateRegion(center: coordinate,
                                         span: span)
         
+        
         dealerSelectionView.map.setRegion(region, animated: true)
         
-        // TELL ME WHY-> Para confirmar a numeração correta dos pins
-        //addPinMap(coordinate)
-        //numberOfPins = 1
     }
     
+    //MARK: - ADD Pin in Map
     func addPinMap(_ coordinate: CLLocationCoordinate2D){
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
@@ -103,6 +105,13 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
         dealerSelectionView.map.removeAnnotations(pins)
         pins.removeAll()
         tabBar.clearPinCount()
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let render = MKPolylineRenderer(overlay: overlay)
+        render.strokeColor = UIColor.red
+        render.lineWidth = 4.0
+        return render
     }
     
 }
@@ -134,7 +143,33 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: MarkViewTabBarDelegate {
     
     func finishButtonPressed() {
-        // MUDA PARA PRÓXIMA TELA
+        for index in 1..<pins.count {
+            print("INDEX >>> \(index)")
+            let sourcePlaceMark = MKPlacemark(coordinate: pins[index-1].coordinate)
+            let destinantionPlaceMark = MKPlacemark(coordinate: pins[index].coordinate)
+            
+            let directionRequest = MKDirections.Request()
+            directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
+            directionRequest.destination = MKMapItem(placemark: destinantionPlaceMark)
+            directionRequest.transportType = .automobile
+            
+            let directions = MKDirections(request: directionRequest)
+            directions.calculate{ (response , error) in
+                guard let directionResponse = response else{
+                    if let error = error{
+                        print("Erro nas direções==\(error.localizedDescription)")
+                    }
+                    return
+                }
+                let route = directionResponse.routes[0]
+                self.screenView.map.addOverlay(route.polyline, level: .aboveRoads)
+                let rect = route.polyline.boundingMapRect
+                self.screenView.map.setRegion(MKCoordinateRegion(rect), animated: true)
+            }
+        }
+        
+        
+        
     }
     
     func clearButtonPressed() {
