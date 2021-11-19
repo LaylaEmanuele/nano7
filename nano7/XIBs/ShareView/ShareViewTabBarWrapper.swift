@@ -1,5 +1,5 @@
 //
-//  MarkViewTabBar.swift
+//  ShareViewTabBarWrapper.swift
 //  nano7
 //
 //  Created by Rafael Basso on 18/11/21.
@@ -7,15 +7,9 @@
 
 import UIKit
 
-class MarkViewTabBarWrapper {
+class ShareViewTabBar {
     
     public let nib: MarkViewTabBarViewController?
-    
-    private var pinQuantity = 0
-    
-    public var pinCount: Int {
-        pinQuantity
-    }
     
     init(owner viewController: UIViewController) {
         
@@ -52,33 +46,6 @@ class MarkViewTabBarWrapper {
     
     public func setDelegate(_ delegate: MarkViewTabBarDelegate) {
         nib!.delegate = delegate
-    }
-    
-}
-
-extension MarkViewTabBarWrapper {
-    
-    public func increasePinCount() {
-        pinQuantity += 1
-        updatePinLabel()
-    }
-    
-//    public func decreasePinCount() {
-//        if pinQuantity > 0 {
-//            pinQuantity -= 1
-//            updatePinLabel()
-//        } else {
-//            print("Minimum pin quantity already reached!")
-//        }
-//    }
-    
-    public func clearPinCount() {
-        pinQuantity = 0
-        updatePinLabel()
-    }
-    
-    private func updatePinLabel() {
-        nib?.qntLabel.text = "\(pinQuantity)"
     }
     
 }

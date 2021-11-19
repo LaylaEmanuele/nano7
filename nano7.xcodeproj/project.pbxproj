@@ -11,6 +11,11 @@
 		3038C0232746CFDC004C482D /* MarkViewTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038C0212746CFDC004C482D /* MarkViewTabBarViewController.swift */; };
 		7B2ED5922746DD3400474590 /* MarkViewTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */; };
 		7B2ED5962746DFA100474590 /* MarkViewTabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5952746DFA000474590 /* MarkViewTabBarDelegate.swift */; };
+		7B2ED59B2746F89C00474590 /* ShareViewTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B2ED59A2746F89C00474590 /* ShareViewTabBar.xib */; };
+		7B2ED59E2746FCFB00474590 /* ShareViewTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED59D2746FCFB00474590 /* ShareViewTabBarViewController.swift */; };
+		7B2ED5A12746FE2400474590 /* ShareViewTabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5A02746FE2400474590 /* ShareViewTabBarDelegate.swift */; };
+		7B2ED5A32746FE7D00474590 /* ShareViewTabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5A22746FE7D00474590 /* ShareViewTabBarWrapper.swift */; };
+		7B2ED5A52747439600474590 /* DataShareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ED5A42747439600474590 /* DataShareHandler.swift */; };
 		8D96A72C2746068600EFD745 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D96A72B2746068600EFD745 /* Settings.bundle */; };
 		BFEB6303274573D600086013 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6302274573D600086013 /* AppDelegate.swift */; };
 		BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB6304274573D600086013 /* SceneDelegate.swift */; };
@@ -30,6 +35,11 @@
 		3038C0212746CFDC004C482D /* MarkViewTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewTabBarViewController.swift; sourceTree = "<group>"; };
 		7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewTabBarWrapper.swift; sourceTree = "<group>"; };
 		7B2ED5952746DFA000474590 /* MarkViewTabBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewTabBarDelegate.swift; sourceTree = "<group>"; };
+		7B2ED59A2746F89C00474590 /* ShareViewTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareViewTabBar.xib; sourceTree = "<group>"; };
+		7B2ED59D2746FCFB00474590 /* ShareViewTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewTabBarViewController.swift; sourceTree = "<group>"; };
+		7B2ED5A02746FE2400474590 /* ShareViewTabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewTabBarDelegate.swift; sourceTree = "<group>"; };
+		7B2ED5A22746FE7D00474590 /* ShareViewTabBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewTabBarWrapper.swift; sourceTree = "<group>"; };
+		7B2ED5A42747439600474590 /* DataShareHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShareHandler.swift; sourceTree = "<group>"; };
 		8D96A72B2746068600EFD745 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BFEB62FF274573D600086013 /* nano7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nano7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEB6302274573D600086013 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +70,7 @@
 		3038C01E2746CFDC004C482D /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				7B2ED5992746F76700474590 /* ShareView */,
 				7B2ED5972746F08F00474590 /* MarkView */,
 			);
 			path = XIBs;
@@ -85,10 +96,10 @@
 		7B2ED5972746F08F00474590 /* MarkView */ = {
 			isa = PBXGroup;
 			children = (
+				3038C0202746CFDC004C482D /* Controllers */,
 				7B2ED5952746DFA000474590 /* MarkViewTabBarDelegate.swift */,
 				7B2ED5912746DD3400474590 /* MarkViewTabBarWrapper.swift */,
 				3038C01F2746CFDC004C482D /* MarkViewTabBar.xib */,
-				3038C0202746CFDC004C482D /* Controllers */,
 			);
 			path = MarkView;
 			sourceTree = "<group>";
@@ -100,6 +111,25 @@
 				BFEB6304274573D600086013 /* SceneDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		7B2ED5992746F76700474590 /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				7B2ED59C2746FCDF00474590 /* Controllers */,
+				7B2ED5A02746FE2400474590 /* ShareViewTabBarDelegate.swift */,
+				7B2ED5A22746FE7D00474590 /* ShareViewTabBarWrapper.swift */,
+				7B2ED59A2746F89C00474590 /* ShareViewTabBar.xib */,
+			);
+			path = ShareView;
+			sourceTree = "<group>";
+		};
+		7B2ED59C2746FCDF00474590 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7B2ED59D2746FCFB00474590 /* ShareViewTabBarViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		BFEB62F6274573D500086013 = {
@@ -147,6 +177,7 @@
 				7B2ED5982746F0B300474590 /* Delegate */,
 				3038C0242746D670004C482D /* Coordinator */,
 				BFEB63282745CA8400086013 /* Fonts */,
+				7B2ED5A42747439600474590 /* DataShareHandler.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -235,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2ED59B2746F89C00474590 /* ShareViewTabBar.xib in Resources */,
 				8D96A72C2746068600EFD745 /* Settings.bundle in Resources */,
 				3038C0222746CFDC004C482D /* MarkViewTabBar.xib in Resources */,
 				BFEB630F274573D800086013 /* LaunchScreen.storyboard in Resources */,
@@ -254,12 +286,16 @@
 				BFEB63272745B54700086013 /* MainCoordinator.swift in Sources */,
 				3038C0232746CFDC004C482D /* MarkViewTabBarViewController.swift in Sources */,
 				BFEB6307274573D600086013 /* InitialViewController.swift in Sources */,
+				7B2ED59E2746FCFB00474590 /* ShareViewTabBarViewController.swift in Sources */,
+				7B2ED5A12746FE2400474590 /* ShareViewTabBarDelegate.swift in Sources */,
 				BFEB6317274591BC00086013 /* InitialView.swift in Sources */,
 				7B2ED5922746DD3400474590 /* MarkViewTabBarWrapper.swift in Sources */,
 				BFEB631A2745A1A200086013 /* Coordinator.swift in Sources */,
 				BFEB6303274573D600086013 /* AppDelegate.swift in Sources */,
 				BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */,
 				BFEB63242745AAF000086013 /* MapViewController.swift in Sources */,
+				7B2ED5A32746FE7D00474590 /* ShareViewTabBarWrapper.swift in Sources */,
+				7B2ED5A52747439600474590 /* DataShareHandler.swift in Sources */,
 				7B2ED5962746DFA100474590 /* MarkViewTabBarDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
