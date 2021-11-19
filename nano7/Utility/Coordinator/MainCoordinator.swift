@@ -17,6 +17,13 @@ class MainCoordinator: Coordinator{
             var vc: UIViewController & Coordinating = MapViewController()
             vc.coordinater = self
             navigationController?.pushViewController(vc, animated: true)
+        
+        case .finishButtonPressed:
+            print("Entrei no case ")
+            var routeVC: UIViewController & Coordinating = RouteViewController()
+            routeVC.coordinater = self
+            navigationController?.pushViewController(routeVC, animated: true)
+        
         }
     }
     

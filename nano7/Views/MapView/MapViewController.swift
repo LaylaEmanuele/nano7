@@ -9,12 +9,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordinating {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordinating{
     var coordinater: Coordinator?
     var locationManager: CLLocationManager?
     var tabBar: MarkViewTabBarWrapper!
-    
-    var numberOfPins = 0
     var pins = [MKPointAnnotation]()
     
     
@@ -81,10 +79,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
                                         span: span)
         
         dealerSelectionView.map.setRegion(region, animated: true)
-        
-        // TELL ME WHY-> Para confirmar a numeração correta dos pins
-        //addPinMap(coordinate)
-        //numberOfPins = 1
     }
     
     func addPinMap(_ coordinate: CLLocationCoordinate2D){
@@ -104,6 +98,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
         pins.removeAll()
         tabBar.clearPinCount()
     }
+
     
 }
 
@@ -134,7 +129,7 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: MarkViewTabBarDelegate {
     
     func finishButtonPressed() {
-        // MUDA PARA PRÓXIMA TELA
+        coordinater?.eventOcurred(with: .finishButtonPressed)
     }
     
     func clearButtonPressed() {

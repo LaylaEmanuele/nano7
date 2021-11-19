@@ -23,6 +23,7 @@
 		BFEB63242745AAF000086013 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB63232745AAF000086013 /* MapViewController.swift */; };
 		BFEB63272745B54700086013 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB63262745B54700086013 /* MainCoordinator.swift */; };
 		BFEB632A2745CA9E00086013 /* Combo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFEB63292745CA9E00086013 /* Combo.ttf */; };
+		FB375CB52746FA0F00303160 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB375CB42746FA0F00303160 /* RouteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		BFEB63232745AAF000086013 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BFEB63262745B54700086013 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BFEB63292745CA9E00086013 /* Combo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Combo.ttf; sourceTree = "<group>"; };
+		FB375CB42746FA0F00303160 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		BFEB63252745B4F000086013 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FB375CB12746F9EE00303160 /* Route */,
 				BFEB6318274591C400086013 /* InitialView */,
 				BFEB63202745AA9500086013 /* MapView */,
 			);
@@ -175,6 +178,14 @@
 				BFEB63292745CA9E00086013 /* Combo.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FB375CB12746F9EE00303160 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				FB375CB42746FA0F00303160 /* RouteViewController.swift */,
+			);
+			path = Route;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				BFEB6305274573D600086013 /* SceneDelegate.swift in Sources */,
 				BFEB63242745AAF000086013 /* MapViewController.swift in Sources */,
 				7B2ED5962746DFA100474590 /* MarkViewTabBarDelegate.swift in Sources */,
+				FB375CB52746FA0F00303160 /* RouteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
