@@ -24,7 +24,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
             didSet {
                 switch type {
                 case .MarkView:
-                    print("aaaaaaaaaa")
                     tabBarRef = (MarkViewTabBarWrapper(owner: owner), nil)
                 case .ShareView:
                     tabBarRef = (nil, ShareViewTabBarWrapper(owner: owner))
