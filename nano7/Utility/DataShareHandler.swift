@@ -13,9 +13,11 @@ class DataShareHandler {
     // Salvar imagem no disco
     // Source: https://stackoverflow.com/a/53894441/10845180
     
-    private func saveImage(image: UIImage) {
+    public static func saveImage(from view: UIView) {
 
-     guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let image = view.takeScreenshot()
+        
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
 
         let fileName = "DrawMap_saved_\(Date().timeIntervalSinceReferenceDate)"
         let fileURL = documentsDirectory.appendingPathComponent(fileName)
@@ -42,7 +44,7 @@ class DataShareHandler {
     // Compartilhar imagem
     // Source: https://stackoverflow.com/a/35931947/10845180
     
-    func shareImage(from view: UIView, presentOn viewController: UIViewController) {
+    public static func shareImage(from view: UIView, presentOn viewController: UIViewController) {
         
         // image to share
         let image = view.takeScreenshot()
