@@ -21,10 +21,10 @@ class InitialView: UIView {
     
     //MARK: - Views
     lazy var titleImg = makeImage(imageName: "titleImg")
-    lazy public var button = makeButton()
+    lazy public var button = makeButton(text: "playButton")
     lazy var mainImage = makeImage(imageName: "mainImg")
     lazy var bgImg = makeImage(imageName: "bgImg")
-    
+    lazy var buttonSettings = makeButton(text: "buttonSettings")
     
     //MARK: - Layout Setup
     
@@ -46,9 +46,9 @@ extension InitialView {
         return label
     }
 
-    private func makeButton() -> UIButton {
+    private func makeButton(text: String) -> UIButton {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "playButton"), for: .normal)
+        button.setImage(UIImage(named: text), for: .normal)
         
         return button
     }
@@ -58,6 +58,7 @@ extension InitialView {
         addSubview(mainImage)
         addSubview(button)
         addSubview(bgImg)
+        addSubview(buttonSettings)
     }
     
     //MARK: - Add Constraints
@@ -66,6 +67,7 @@ extension InitialView {
         mainImageAutoLayout()
         buttonAutoLayout()
         bgImgeAutoLayout()
+        buttonSettingsAutoLayout()
     }
     
     func titleImgAutoLayout() {
@@ -94,4 +96,9 @@ extension InitialView {
         bgImg.layer.zPosition = -2
     }
     
+    func buttonSettingsAutoLayout() {
+        buttonSettings.translatesAutoresizingMaskIntoConstraints = false
+        buttonSettings.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30).isActive = true
+        buttonSettings.topAnchor.constraint(equalTo: self.topAnchor, constant: 70).isActive = true
+    }
 }

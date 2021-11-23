@@ -95,14 +95,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
     
     
     // MARK: - Setup
-    private func setup() {
-        setupNavigation()
-    }
-    
-    private func setupNavigation() {
-        
-    }
-    
     @objc func handleTap(gestureRecognizer: UITapGestureRecognizer) {
         
         let location = gestureRecognizer.location(in: dealerSelectionView.map)
@@ -255,6 +247,5 @@ extension MapViewController: ShareViewTabBarDelegate {
         print("share")
 //        DataShareHandler.shareImage(from: view, presentOn: self)
     }
-    
     
 }

@@ -7,10 +7,6 @@
 		<string></string>
 		<string>Combo.ttf</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>ow mano liga a wifi ai na moralkkkkk</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>eae man kk liga o play 4 do teu irmão ai na moralzinhakkkkkkkkkkkkkkkk</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
