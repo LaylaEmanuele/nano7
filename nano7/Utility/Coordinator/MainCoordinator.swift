@@ -17,11 +17,12 @@ class MainCoordinator: Coordinator{
             var vc: UIViewController & Coordinating = MapViewController()
             vc.coordinater = self
             navigationController?.pushViewController(vc, animated: true)
-        
+            
         case .buttonSettings:
             var vc: UIViewController & Coordinating = SettingsViewController()
             vc.coordinater = self
             navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
     

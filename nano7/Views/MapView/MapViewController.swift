@@ -61,6 +61,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Coordina
     // MARK: - LifeCycle
     override func loadView() {
         super.view = dealerSelectionView
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     override func viewDidLoad() {
@@ -236,11 +237,13 @@ extension MapViewController: ShareViewTabBarDelegate {
     func backButtonPresesd() {
         // pop view aq
         print("voltar view")
+        coordinater?.eventOcurred(with: .buttonTapped)
     }
     
     func downloadButtonPressed() {
         print("download")
-//        DataShareHandler.saveImage(from: view)
+        DataShareHandler.saveImage(from: dealerSelectionView)
+            
     }
     
     func shareButtonPressed() {
